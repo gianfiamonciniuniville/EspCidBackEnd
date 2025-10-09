@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: sqlserverespcid
+    ports:
+      - "1433:1433"
+    environment:
+      SA_PASSWORD: "Teste123"
+      ACCEPT_EULA: "Y"
+    networks:
+      - devnet
+
+networks:
+  devnet:
