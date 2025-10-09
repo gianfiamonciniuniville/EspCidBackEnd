@@ -1,10 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using EspCid.Domain.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace EspCid.Infrastructure;
 
 public class EspCidDbContext: DbContext
 {
-    
+    public DbSet<User> Users { get; set; }
     
     public EspCidDbContext(DbContextOptions options) : base(options)
     {
