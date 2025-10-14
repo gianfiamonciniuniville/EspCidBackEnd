@@ -59,3 +59,17 @@ dotnet-ef database update -s ../EspCid.WebApi
 dotnet-ef database drop -s ../EspCid.WebApi
 ```
 
+---
+
+## Lidar com as Migrations (EntityFramework)
+
+- Ir para a pasta do projeto EspCid.Infrasctructure e rodar
+
+```bash
+# Adicionar/Commitar uma migração/alteração na arquitetura do banco de dados (-s para pegar o projeto de Apresentação/Endpoints)
+dotnet-ef migrations add NomeDaAlteração -s ../EspCid.WebApi
+
+# Remover alteração (-s para pegar o projeto de Apresentação/Endpoints)
+dotnet-ef migrations remove -s ../EspCid.WebApi
+```
+
