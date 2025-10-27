@@ -1,4 +1,8 @@
+using EspCid.Application.Interfaces;
+using EspCid.Application.Services;
+using EspCid.Domain.Interfaces;
 using EspCid.Infrastructure;
+using EspCid.Infrastructure.Repositories;
 using EspCid.WebApi.Middlewares;
 using Microsoft.EntityFrameworkCore;
 
@@ -20,6 +24,10 @@ builder.Services.AddDbContextPool<EspCidDbContext>(b =>
     b.UseSqlServer(connectionString);
     b.AddInterceptors(new CommandsInterceptor());
 });
+
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+// Repositorios em cima / Serviços abaixo
+builder.Services.AddScoped<IUserService, UserService>();
 
 var app = builder.Build();
 
