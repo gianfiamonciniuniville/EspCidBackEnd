@@ -18,8 +18,7 @@ public class UserDto(User user)
 public class UserShortDto
 {
     public int Id { get; set; }
-    public string Username { get; set; } = string.Empty;
-    public string? ProfileImageUrl { get; set; }
+    public string? FirstName { get; set; }
 }
 
 public class RegisterUserDto

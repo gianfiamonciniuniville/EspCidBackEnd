@@ -26,7 +26,7 @@ public class ReportDto
         User = new UserShortDto
         {
             Id = report.User.Id,
-            ProfileImageUrl = report.User.ProfileImageUrl
+            FirstName = report.User.FirstName
         };
         PhotosCount = report.Photos.Count;
     }

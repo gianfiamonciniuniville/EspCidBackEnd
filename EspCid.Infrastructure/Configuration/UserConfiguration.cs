@@ -23,7 +23,8 @@ public class UserConfiguration(): IEntityTypeConfiguration<User>
         builder.Property(p => p.Role).HasDefaultValue(nameof(Role.Autor));
         
         builder.HasData([
-            new User() { Id = 1, Email = "user1@user.com", Bio = "Test bio user 1", PasswordHash = "Teste123", ProfileImageUrl = "", Role = nameof(Role.Autor), Document = "12345678901", FirstName = "Test", LastName = "User", Phone = "1234567890" }
+            new User() { Id = 1, Email = "user1@user.com", Bio = "Test bio user 1", PasswordHash = "Teste123", ProfileImageUrl = "", Role = nameof(Role.Autor), Document = "12345678901", FirstName = "Test", LastName = "User", Phone = "1234567890" },
+            new User() { Id = 2, Email = "user2@user.com", Bio = "Test bio user 2", PasswordHash = "Teste123", ProfileImageUrl = "", Role = nameof(Role.Autor), Document = "12345678902", FirstName = "Test", LastName = "User 2", Phone = "1234567891" }
         ]);
     }
 }
