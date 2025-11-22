@@ -26,8 +26,10 @@ builder.Services.AddDbContextPool<EspCidDbContext>(b =>
 });
 
 builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IReportRepository, ReportRepository>();
 // Repositorios em cima / Serviços abaixo
 builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IReportService, ReportService>();
 
 var app = builder.Build();
 
