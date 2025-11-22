@@ -19,15 +19,16 @@ public class UserService : IUserService
     {
         if (await _userRepository.GetByEmailAsync(registerUserDto.Email) != null)
             throw new Exception("User with this email already exists.");
-        if (await _userRepository.GetByUserNameAsync(registerUserDto.UserName) != null)
-            throw new Exception("User with this username already exists.");
 
         // TODO: Hash password
         var passwordHash = registerUserDto.Password;
 
         var user = new User
         {
-            UserName = registerUserDto.UserName,
+            FirstName = registerUserDto.FirstName,
+            LastName = registerUserDto.LastName,
+            Document = registerUserDto.Document,
+            Phone = registerUserDto.Phone,
             Email = registerUserDto.Email,
             PasswordHash = passwordHash,
             Role = "User"

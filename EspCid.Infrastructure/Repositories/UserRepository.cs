@@ -26,11 +26,6 @@ public class UserRepository(EspCidDbContext context) : IUserRepository
         return await _context.Users.FindAsync(id);
     }
 
-    public async Task<User?> GetByUserNameAsync(string userName)
-    { 
-        return await _context.Users.FirstOrDefaultAsync(u => u.UserName == userName);
-    }
-
     public async Task<User> UpdateAsync(User user)
     {
         user.Updated = DateTime.UtcNow;

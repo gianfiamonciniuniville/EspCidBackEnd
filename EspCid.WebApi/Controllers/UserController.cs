@@ -18,6 +18,7 @@ public class UserController(IUserService userService) : ControllerBase
     {
         try
         {
+            
             var authResponse = await _userService.RegisterUserAsync(registerUserDto);
             return Ok(authResponse);
         }

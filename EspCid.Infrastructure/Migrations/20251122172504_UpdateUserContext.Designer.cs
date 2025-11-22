@@ -4,6 +4,7 @@ using EspCid.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EspCid.Infrastructure.Migrations
 {
     [DbContext(typeof(EspCidDbContext))]
-    partial class EspCidDbContextModelSnapshot : ModelSnapshot
+    [Migration("20251122172504_UpdateUserContext")]
+    partial class UpdateUserContext
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -72,6 +75,10 @@ namespace EspCid.Infrastructure.Migrations
                     b.Property<DateTime>("Updated")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("Username")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
                     b.ToTable("User", (string)null);
@@ -90,7 +97,8 @@ namespace EspCid.Infrastructure.Migrations
                             Phone = "1234567890",
                             ProfileImageUrl = "",
                             Role = "Autor",
-                            Updated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            Updated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Username = "teste"
                         });
                 });
 #pragma warning restore 612, 618
