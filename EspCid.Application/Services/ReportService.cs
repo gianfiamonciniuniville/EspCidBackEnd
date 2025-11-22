@@ -31,7 +31,6 @@ public class ReportService : IReportService
             Title = createReportDto.Title,
             Description = createReportDto.Description,
             Localization = createReportDto.Localization,
-            CreationDate = DateTime.UtcNow,
             Status = ReportStatus.EmAberto,
             UserId = userId,
         };

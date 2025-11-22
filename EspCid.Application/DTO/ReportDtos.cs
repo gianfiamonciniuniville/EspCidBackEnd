@@ -15,6 +15,7 @@ public class ReportDto
     public ReportStatus Status { get; set; }
     public UserShortDto User { get; set; } = null!;
     public int PhotosCount { get; set; }
+    public DateTime Created { get; set; }
 
     public ReportDto(Report report)
     {
@@ -29,6 +30,7 @@ public class ReportDto
             FirstName = report.User.FirstName
         };
         PhotosCount = report.Photos.Count;
+        Created = report.Created;
     }
 }
 
