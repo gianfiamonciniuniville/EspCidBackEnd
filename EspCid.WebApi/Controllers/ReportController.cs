@@ -24,9 +24,7 @@ public class ReportController : ControllerBase
     {
         try
         {
-            // TODO: Get user from token
-            var userId = 1;
-            var report = await _reportService.CreateReportAsync(userId, createReportDto);
+            var report = await _reportService.CreateReportAsync(createReportDto);
             return Ok(report);
         }
         catch (Exception ex)

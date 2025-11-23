@@ -6,7 +6,7 @@ namespace EspCid.Application.Interfaces;
 
 public interface IReportService
 {
-    Task<ReportDto> CreateReportAsync(int userId, CreateReportDto createReportDto);
+    Task<ReportDto> CreateReportAsync(CreateReportDto createReportDto);
     Task<ReportDto> UpdateReportAsync(int reportId, UpdateReportDto updateReportDto);
     Task<ReportDto?> GetReportByIdAsync(int reportId);
     Task<IEnumerable<ReportDto>> GetAllReportsAsync();

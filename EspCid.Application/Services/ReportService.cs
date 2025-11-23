@@ -22,9 +22,10 @@ public class ReportService : IReportService
         _userRepository = userRepository;
     }
 
-    public async Task<ReportDto> CreateReportAsync(int userId, CreateReportDto createReportDto)
+    public async Task<ReportDto> CreateReportAsync(CreateReportDto createReportDto)
     {
-        var user = await _userRepository.GetByIdAsync(userId) ?? throw new Exception("User not found.");
+        var user = await _userRepository.GetByIdAsync(createReportDto.UserId) 
+                   ?? throw new Exception("User not found.");
 
         var report = new Report
         {
@@ -32,7 +33,7 @@ public class ReportService : IReportService
             Description = createReportDto.Description,
             Localization = createReportDto.Localization,
             Status = ReportStatus.EmAberto,
-            UserId = userId,
+            UserId = createReportDto.UserId,
         };
 
         foreach (var photo in createReportDto.Photos)
