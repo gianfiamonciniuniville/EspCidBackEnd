@@ -40,9 +40,12 @@ public class ReportService : IReportService
         {
             using var memoryStream = new MemoryStream();
             await photo.CopyToAsync(memoryStream);
-            report.Photos.Add(new Photo { ImageData = memoryStream.ToArray() });
+            var imageDataString = Convert.ToBase64String(memoryStream.ToArray());
+            var imageDataPrefix = "data:image/jpeg;base64,";
+            if (!imageDataString.StartsWith(imageDataPrefix))
+                imageDataString = imageDataPrefix + imageDataString;
+            report.Photos.Add(new Photo { ImageData = System.Text.Encoding.UTF8.GetBytes(imageDataString) });
         }
-
         await _reportRepository.CreateAsync(report);
 
         // This is not ideal, as the user object is not loaded yet.
