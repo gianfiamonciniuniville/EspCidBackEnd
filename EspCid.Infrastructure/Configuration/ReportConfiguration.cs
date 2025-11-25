@@ -14,6 +14,8 @@ public class ReportConfiguration : IEntityTypeConfiguration<Report>
         builder.Property(p => p.Title).IsRequired();
         builder.Property(p => p.Description).IsRequired();
         builder.Property(p => p.Localization).IsRequired();
+        builder.Property(p => p.Latitude); // Allow null
+        builder.Property(p => p.Longitude); // Allow null
         builder.Property(p => p.Status).IsRequired();
 
         builder.HasOne(r => r.User)
@@ -31,6 +33,8 @@ public class ReportConfiguration : IEntityTypeConfiguration<Report>
                 Title = "Buraco na rua",
                 Description = "Buraco na rua em frente ao número 123",
                 Localization = "Rua das Flores, 123, Bairro Jardim, Joinville, Santa Catarina",
+                Latitude = -26.3044,
+                Longitude = -48.8477,
                 Created = new DateTime(2023, 1, 1),
                 Status = Domain.Enums.ReportStatus.EmAberto,
                 UserId = 1
@@ -41,6 +45,8 @@ public class ReportConfiguration : IEntityTypeConfiguration<Report>
                 Title = "Lixo na calçada",
                 Description = "Lixo acumulado na calçada da rua X",
                 Localization = "Avenida Brasil, 456, Bairro Centro, Joinville, Santa Catarina",
+                Latitude = -26.3000,
+                Longitude = -48.8500,
                 Created = new DateTime(2023, 1, 2),
                 Status = Domain.Enums.ReportStatus.EmAndamento,
                 UserId = 2
@@ -51,6 +57,8 @@ public class ReportConfiguration : IEntityTypeConfiguration<Report>
                 Title = "Poste de luz queimado",
                 Description = "Poste de luz queimado na praça Y",
                 Localization = "Rua Principal, 789, Bairro Itinga, Araquari, Santa Catarina",
+                Latitude = -26.3100,
+                Longitude = -48.8400,
                 Created = new DateTime(2023, 1, 3),
                 Status = Domain.Enums.ReportStatus.Fechado,
                 UserId = 1

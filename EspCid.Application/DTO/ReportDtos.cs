@@ -12,6 +12,8 @@ public class ReportDto
     public string Title { get; set; } = string.Empty;
     public string Description { get; set; } = string.Empty;
     public string Localization { get; set; } = string.Empty;
+    public double? Latitude { get; set; }
+    public double? Longitude { get; set; }
     public ReportStatus Status { get; set; }
     public UserShortDto User { get; set; } = null!;
     public int PhotosCount { get; set; }
@@ -23,6 +25,8 @@ public class ReportDto
         Title = report.Title;
         Description = report.Description;
         Localization = report.Localization;
+        Latitude = report.Latitude;
+        Longitude = report.Longitude;
         Status = report.Status;
         User = new UserShortDto
         {
@@ -40,6 +44,8 @@ public class CreateReportDto
     public string Title { get; set; } = string.Empty;
     public string Description { get; set; } = string.Empty;
     public string Localization { get; set; } = string.Empty;
+    public double? Latitude { get; set; }
+    public double? Longitude { get; set; }
     public List<IFormFile> Photos { get; set; } = new List<IFormFile>();
 }
 
@@ -47,5 +53,7 @@ public class UpdateReportDto
 {
     public string? Title { get; set; }
     public string? Description { get; set; }
+    public double? Latitude { get; set; }
+    public double? Longitude { get; set; }
     public ReportStatus? Status { get; set; }
 }

@@ -32,6 +32,8 @@ public class ReportService : IReportService
             Title = createReportDto.Title,
             Description = createReportDto.Description,
             Localization = createReportDto.Localization,
+            Latitude = createReportDto.Latitude,
+            Longitude = createReportDto.Longitude,
             Status = ReportStatus.EmAberto,
             UserId = createReportDto.UserId,
         };
@@ -97,6 +99,16 @@ public class ReportService : IReportService
         if (updateReportDto.Description != null)
         {
             report.Description = updateReportDto.Description;
+        }
+
+        if (updateReportDto.Latitude != null)
+        {
+            report.Latitude = updateReportDto.Latitude;
+        }
+
+        if (updateReportDto.Longitude != null)
+        {
+            report.Longitude = updateReportDto.Longitude;
         }
 
         if (updateReportDto.Status != null)
