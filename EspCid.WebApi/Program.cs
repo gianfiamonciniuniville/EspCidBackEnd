@@ -50,4 +50,4 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 app.MapControllers();
 app.UseCors(MyAllowSpecificOrigins);
-app.Run();
+app.Run("http://192.168.1.15:5005");

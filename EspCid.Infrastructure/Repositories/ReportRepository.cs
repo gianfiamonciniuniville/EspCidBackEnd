@@ -59,6 +59,12 @@ public class ReportRepository : IReportRepository
             .ToListAsync();
     }
 
+    public async Task<Report?> GetReportAtLocationAsync(double latitude, double longitude)
+    {
+        return await _context.Reports
+            .FirstOrDefaultAsync(r => r.Latitude == latitude && r.Longitude == longitude);
+    }
+
     public async Task<Report> UpdateAsync(Report report)
     {
         report.Updated = DateTime.UtcNow;

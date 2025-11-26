@@ -13,4 +13,5 @@ public interface IReportService
     Task<IEnumerable<ReportDto>> GetReportsByCityAsync(string city);
     Task<IEnumerable<ReportDto>> GetReportsByUserAsync(int userId);
     Task<IEnumerable<byte[]>> GetReportPhotosAsync(int reportId);
+    Task<bool> ReportExistsAtLocationAsync(double latitude, double longitude);
 }

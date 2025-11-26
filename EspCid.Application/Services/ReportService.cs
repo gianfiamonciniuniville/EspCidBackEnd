@@ -26,6 +26,18 @@ public class ReportService : IReportService
     {
         var user = await _userRepository.GetByIdAsync(createReportDto.UserId) 
                    ?? throw new Exception("User not found.");
+        
+        if (createReportDto.Latitude.HasValue && createReportDto.Longitude.HasValue)
+        {
+            var existingReport = await _reportRepository.GetReportAtLocationAsync(
+                createReportDto.Latitude.Value, 
+                createReportDto.Longitude.Value);
+
+            if (existingReport != null)
+            {
+                throw new Exception("Já existe um relato nesta localização.");
+            }
+        }
 
         var report = new Report
         {
@@ -55,6 +67,11 @@ public class ReportService : IReportService
         report.User = user;
 
         return new ReportDto(report);
+    }
+
+    public async Task<bool> ReportExistsAtLocationAsync(double latitude, double longitude)
+    {
+        return await _reportRepository.GetReportAtLocationAsync(latitude, longitude) != null;
     }
 
     public async Task<IEnumerable<ReportDto>> GetAllReportsAsync()

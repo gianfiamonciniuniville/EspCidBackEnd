@@ -12,4 +12,5 @@ public interface IReportRepository
     Task<IEnumerable<Report>> GetAllAsync();
     Task<IEnumerable<Report>> GetByCityAsync(string city);
     Task<IEnumerable<Report>> GetByUserAsync(int userId);
+    Task<Report?> GetReportAtLocationAsync(double latitude, double longitude);
 }
