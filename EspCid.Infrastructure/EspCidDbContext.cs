@@ -8,6 +8,8 @@ public class EspCidDbContext: DbContext
     public DbSet<User> Users { get; set; }
     public DbSet<Report> Reports { get; set; }
     public DbSet<Photo> Photos { get; set; }
+    public DbSet<Comment> Comments { get; set; }
+    public DbSet<CommentPhoto> CommentPhotos { get; set; }
     
     public EspCidDbContext(DbContextOptions options) : base(options)
     {

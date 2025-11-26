@@ -4,6 +4,7 @@ using EspCid.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EspCid.Infrastructure.Migrations
 {
     [DbContext(typeof(EspCidDbContext))]
-    partial class EspCidDbContextModelSnapshot : ModelSnapshot
+    [Migration("20251126144032_AddComments")]
+    partial class AddComments
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -53,53 +56,6 @@ namespace EspCid.Infrastructure.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("Comment", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Content = "Ótima iniciativa! Espero que resolvam logo este buraco.",
-                            Created = new DateTime(2023, 1, 1, 10, 0, 0, 0, DateTimeKind.Unspecified),
-                            ReportId = 1,
-                            Updated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = 2
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Content = "Concordo! Já causou acidentes aqui.",
-                            Created = new DateTime(2023, 1, 1, 10, 30, 0, 0, DateTimeKind.Unspecified),
-                            ReportId = 1,
-                            Updated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = 1
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Content = "A prefeitura já foi notificada sobre este problema.",
-                            Created = new DateTime(2023, 1, 2, 14, 0, 0, 0, DateTimeKind.Unspecified),
-                            ReportId = 2,
-                            Updated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = 1
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Content = "Realmente, o lixo está acumulando e atraindo pragas.",
-                            Created = new DateTime(2023, 1, 2, 14, 45, 0, 0, DateTimeKind.Unspecified),
-                            ReportId = 2,
-                            Updated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = 2
-                        },
-                        new
-                        {
-                            Id = 5,
-                            Content = "Espero que o problema do poste seja resolvido rapidamente.",
-                            Created = new DateTime(2023, 1, 3, 9, 0, 0, 0, DateTimeKind.Unspecified),
-                            ReportId = 3,
-                            Updated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = 2
-                        });
                 });
 
             modelBuilder.Entity("EspCid.Domain.Entities.CommentPhoto", b =>

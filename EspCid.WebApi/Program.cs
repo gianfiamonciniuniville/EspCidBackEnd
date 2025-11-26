@@ -34,9 +34,11 @@ builder.Services.AddDbContextPool<EspCidDbContext>(b =>
 
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IReportRepository, ReportRepository>();
+builder.Services.AddScoped<ICommentRepository, CommentRepository>();
 // Repositorios em cima / Serviços abaixo
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IReportService, ReportService>();
+builder.Services.AddScoped<ICommentService, CommentService>();
 
 var app = builder.Build();
 
@@ -50,4 +52,4 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 app.MapControllers();
 app.UseCors(MyAllowSpecificOrigins);
-app.Run("http://192.168.1.15:5005");
+app.Run();
